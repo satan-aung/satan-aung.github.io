@@ -144,11 +144,31 @@ footer{
 }
 
 /* LIGHT MODE */
-body.light{
-  background:var(--light);
-  color:#0f172a;
+/* LIGHT MODE ADJUSTMENTS */
+body.light {
+  background: var(--light);
+  color: #0f172a;
 }
-body.light .card{background:#fff;}
+
+body.light .card {
+  background: #fff;       /* lighter card for contrast */
+  color: #0f172a;         /* make card text readable */
+  border: 1px solid #ccc; /* optional subtle border */
+}
+
+body.light .skills span {
+  background: #e2e8f0;    /* light background for skill tags */
+  color: #0f172a;          /* dark text for readability */
+}
+
+body.light header p {
+  color: #0f172a;          /* header subtitle readable in light mode */
+}
+
+body.light .cta a {
+  background: var(--primary);
+  color: #fff;
+}
 
 /* ANIMATION KEYFRAMES */
 @keyframes fadeIn{
