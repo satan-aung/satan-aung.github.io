@@ -4,74 +4,194 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pyae Sone Aung | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root {--primary-color:#62318c;--accent-color:#ffcc00;--bg-dark:#1e1e2f;--bg-light:#f5f7fa;--text-dark:#f0f0f0;--text-light:#1e1e2f;}
-body{margin:0 ;font-family:'Roboto',sans-serif ;background:var(--bg-dark) ;color:var(--text-dark) ;transition:background 0.3 s,color 0.3 s;}
-header{background:var(--primary-color) ;text-align:center ;padding:60 px 20 px ;position:relative;}
-header img.profile-img{width:160 px ;height:160 px ;border-radius:50% ;border:4 px solid #fff ;object-fit:cover ;margin-bottom:15 px ;transition:transform 0.3 s;}
-header img.profile-img:hover{transform:scale(1.05);}
-header h1{margin:0 ;font-size:2.5 em ;font-weight:700;}
-header p{margin:5 px 0 ;font-size:1.1 em;}
-.theme-toggle{position:fixed ;top:20 px ;right:20 px ;background:var(--accent-color) ;border:none ;padding:10 px 15 px ;border-radius:8 px ;cursor:pointer ;font-weight:bold ;z-index:1000;}
-.container{display:grid ;grid-template-columns:repeat(auto-fit,minmax(320 px,1 fr)) ;gap:20 px ;padding:40 px;}
-.card{background:#2a2a40 ;border-radius:15 px ;padding:25 px ;transition:transform 0.3 s,box-shadow 0.3 s ;cursor:pointer;}
-.card:hover{transform:translateY(-10 px) scale(1.02) ;box-shadow:0 15 px 35 px rgba(0,0,0,0.5);}
-.card h2{color:var(--accent-color) ;margin-top:0 ;}
-.card p{line-height:1.6;}
-.card a{color:var(--primary-color) ;font-weight:500 ;text-decoration:none ;display:inline-block ;margin-top:5 px;}
-.card a:hover{text-decoration:underline;}
-.qr-code{width:40 px ;display:block ;margin:15 px auto ;cursor:pointer ;transition:transform 0.3 s;}
-.qr-code:hover{transform:scale(1.1);}
-footer{background:#111126 ;text-align:center ;padding:25 px ;font-size:0.9 em ;color:#aaa;}
-body.light{background:var(--bg-light) ;color:var(--text-light);}
-body.light .card{background:#fff ;color:var(--text-light);}
-body.light .card a{color:var(--primary-color);}
-body.light header{background:var(--primary-color) ;color:#fff;}
-.qr-popup{position:fixed ;top:0 ;left:0 ;width:100% ;height:100% ;background:rgba(0,0,0,0.8) ;display:flex ;justify-content:center ;align-items:center ;visibility:hidden ;opacity:0 ;transition:visibility 0 s,opacity 0.3 s ;z-index:999;}
-.qr-popup img{width:150 px ;border-radius:15 px ;}
-.qr-popup.show{visibility:visible ;opacity:1;}
+:root {
+  --primary:#6c63ff;
+  --accent:#00d4ff;
+  --dark:#0f172a;
+  --card:#1e293b;
+  --light:#f8fafc;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--dark);
+  color:#e2e8f0;
+  transition:0.3s;
+}
+
+header{
+  text-align:center;
+  padding:70px 20px;
+  background:linear-gradient(135deg,#1e293b,#0f172a);
+}
+
+.profile-img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:4px solid var(--accent);
+  object-fit:cover;
+  margin-bottom:15px;
+  transition:0.3s;
+}
+.profile-img:hover{transform:scale(1.05);}
+
+h1{margin:10px 0;font-size:2.5rem;}
+header p{color:#94a3b8;}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+  display:grid;
+  gap:25px;
+}
+
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+.card h2{
+  color:var(--accent);
+  margin-bottom:15px;
+}
+
+.project{
+  margin-bottom:15px;
+}
+
+.project a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:500;
+}
+
+.project a:hover{text-decoration:underline;}
+
+.skills span{
+  display:inline-block;
+  background:#334155;
+  padding:6px 12px;
+  margin:5px;
+  border-radius:6px;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#64748b;
+}
+
+.theme-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:var(--accent);
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* Light mode */
+body.light{
+  background:var(--light);
+  color:#0f172a;
+}
+body.light .card{
+  background:#fff;
+}
 </style>
 </head>
+
 <body>
-<button class="theme-toggle" onclick="toggleTheme()">&#127769; Dark/Light</button>
+
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
 <header>
-<img src="profile.jpg" alt="Pyae Sone Aung" class="profile-img">
-<h1>Pyae Sone Aung</h1>
-<p>Embedded Systems & Data Analyst | Aspiring Software Intern</p>
+  <img src="profile.jpg" class="profile-img">
+  <h1>Pyae Sone Aung</h1>
+  <p>Embedded Systems • Data Analyst • Software Engineer</p>
 </header>
+
 <div class="container">
-<div class="card">
-<h2>Portfolio Projects</h2>
-<p><b>Smart File Automation System</b><br>Batch-based file organization & version control tool.</p>
-<a href="https://github.com/satan-aung/smart-file-automation-system" target="_blank">View on GitHub</a>
-<p><b>Arduino Wireless Robot</b><br>Bluetooth-controlled embedded system.</p>
-<a href="https://github.com/satan-aung/arduino-wireless-robot" target="_blank">View on GitHub</a>
+
+  <div class="card">
+    <h2>🚀 About Me</h2>
+    <p>
+      Embedded Systems student with strong skills in Python, C++, and automation.
+      Currently working as a Data Analyst, focused on real-world problem solving,
+      data processing, and scalable systems.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🛠 Tech Stack</h2>
+    <div class="skills">
+      <span>Python</span><span>C++</span><span>Java</span>
+      <span>C#</span><span>PHP</span>
+      <br>
+      <span>Arduino</span><span>Raspberry Pi</span>
+      <span>Automation</span><span>Data Analysis</span>
+      <span>Git</span><span>GitHub</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📌 Projects</h2>
+
+    <div class="project">
+      <b>Smart File Automation System</b><br>
+      Batch-based tool for file organization and version control.<br>
+      <a href="https://github.com/satan-aung/smart-file-automation-system" target="_blank">View Project</a>
+    </div>
+
+    <div class="project">
+      <b>Arduino Wireless Robot</b><br>
+      Bluetooth-controlled embedded robot system.<br>
+      <a href="https://github.com/satan-aung/arduino-wireless-robot" target="_blank">View Project</a>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <h2>🎓 Certification</h2>
+    <p>Cyber Security & Ethical Hacking – MIBA College</p>
+  </div>
+
+  <div class="card">
+    <h2>🌐 Contact</h2>
+    <p>Email: <a href="mailto:pyaesaucsm1@gmail.com">pyaesaucsm1@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/pyae-sone-aung-a694351b2/" target="_blank">Profile</a></p>
+    <p>GitHub: <a href="https://github.com/satan-aung" target="_blank">github.com/satan-aung</a></p>
+  </div>
+
 </div>
-<div class="card">
-<h2>Certification</h2>
-<p>Cyber Security & Ethical Hacking – MIBA College, Myanmar</p>
-</div>
-<div class="card" onclick="showQR()">
-<h2>JobNet Profile</h2>
-<img src="jobnet_qr.png" alt="JobNet QR Code" class="qr-code">
-<p style="text-align:center;">Click QR to enlarge</p>
-</div>
-<div class="card">
-<h2>Contact</h2>
-<p>Email: <a href="mailto:pyaesaucsm1@gmail.com">pyaesaucsm1@gmail.com</a></p>
-<p>LinkedIn: <a href="https://linkedin.com/in/pyae-sone-aung-a694351b2/" target="_blank">linkedin.com/in/pyae-sone-aung</a></p>
-<p>GitHub: <a href="https://github.com/satan-aung" target="_blank">github.com/satan-aung</a></p>
-</div>
-</div>
-<footer>© 2026 Pyae Sone Aung | All Rights Reserved</footer>
-<div class="qr-popup" id="qrPopup" onclick="hideQR()">
-<img src="jobnet_qr.png" alt="JobNet QR">
-</div>
+
+<footer>
+  © 2026 Pyae Sone Aung | Open to Work
+</footer>
+
 <script>
-function toggleTheme(){document.body.classList.toggle("light");}
-function showQR(){document.getElementById("qrPopup").classList.add("show");}
-function hideQR(){document.getElementById("qrPopup").classList.remove("show");}
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
 </script>
+
 </body>
 </html>
